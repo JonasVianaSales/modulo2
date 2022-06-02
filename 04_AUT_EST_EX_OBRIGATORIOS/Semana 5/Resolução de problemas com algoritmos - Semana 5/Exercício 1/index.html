@@ -10,7 +10,14 @@
 </head>
 <body>
     Primeiro número: <input type="number" id="slot1">
-    Segundo número: <input type="number" id="slot2">
-    <button type="button">Calcular</button>
+    Segundo número: <input type="number" id="slot2"><br>
+    <input type="radio" name="number" value="plus">+<br>
+    <input type="radio" name="number" value="minus">-<br>
+    <input type="radio" name="number" value="times">*<br>
+    <input type="radio" name="number" value="dissection">/<br>
+    <input type="radio" name="number" value="integer dissection">//<br>
+    <input type="radio" name="number" value="modulus">%<br>
+    <button type="button" onclick="calc()">Calcular</button>
+    <p id="out"></p>
 </body>
 </html>
