@@ -25,7 +25,7 @@ function darkMode() {
 }
 
 function getData(){
-        $.get('http://127.0.0.1:3000/uau22', function(data){
+        $.get('http://127.0.0.1:3000/uau', function(data){
             $('#title').html(data[0].title);
             $('#text').html(data[0].text);
         })
