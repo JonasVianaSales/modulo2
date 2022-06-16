@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="javascript/index.js"></script>
     <title>Document</title>
+    <script src="javascript/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <input type="text" id="quant_alunos">
-    <div id="trocar"></div>
-    <button onclick="trocar()"></button>
-    <button onclick=""></button>
+    Quantidade de alunos: <input type="number" id="ns">
+    <button type="button" onclick="calc()">Criar alunos</button>
+    <p id="out"></p>
+    <p id="allMedia"></p>
+    <p id="allMediaExam"></p>
+    <p id="allMediaProject"></p>
+    <p id="minMaxExam"></p>
+    <p id="minMaxProject"></p>
 </body>
 </html>

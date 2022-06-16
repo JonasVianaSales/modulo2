@@ -23,7 +23,7 @@ function sortItems(array) {
     document.getElementById("showArray").innerHTML = ("Sua array ordenada: " + array);
 	return array
 }
-
+    
 
 function binarySearch(array) {
     let target = parseInt(document.getElementById("target").value);
