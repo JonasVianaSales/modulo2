@@ -1,4 +1,4 @@
-# Nome do aluno
+# Jonas Vian Sales
 Minhas entregas estão definidas aqui:
 ## Auto Estudo
 <a href="https://github.com/JonasVianaSales/modulo2/tree/main/03_AUT_EST_ENTREGA/Semana%202"> 01/06/2022 - Semana 2 </a>
