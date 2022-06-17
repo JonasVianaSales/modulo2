@@ -8,73 +8,67 @@ const DBPATH = 'sqlite.db';
 app.use(express.json())
 app.use(express.static("front/"));
 
-/* Definição dos endpoints */
 
-/****** CRUD ******************************************************************/
-
-// Retorna todos registros (é o R do CRUD - Read)
 app.get('/skills', (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    var db = new sqlite3.Database(DBPATH);
     var sql = 'SELECT * FROM skills ORDER BY title COLLATE NOCASE';
-    db.all(sql, [],  (err, rows ) => {
+    db.all(sql, [],  (err, rows) => {
         if (err) {
             throw err;
         }
         res.json(rows);
     });
-    db.close(); // Fecha o banco
+    db.close();
 });
 
-// Insere um registro (é o C do CRUD - Create)
-// app.post('/skillsinsert', urlencodedParser, (req, res) => {
-//     res.statusCode = 200;
-//     res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
 
-//     sql = "INSERT INTO skills (title, id, text) VALUES ('" req.body.title + req.body.id  + req.body.id "')";
-//     var db = new sqlite3.Database(DBPATH); // Abre o banco
-//     db.run(sql, [],  err => {
-//         if (err) {
-//             throw err;
-//         }
-//     });
-//     db.close(); // Fecha o banco
-//     res.end();
-// });
+app.post('/skillsinsert', (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    sql = `INSERT INTO skills (title, id, text) VALUES ('${req.body.title}, ${req.body.text}, ${req.body.id}')`;
+    var db = new sqlite3.Database(DBPATH);
+    db.run(sql, [],  err => {
+        if (err) {
+            throw err;
+        }
+    });
+    db.close();
+    res.end();
+});
 
-// Atualiza um registro (é o U do CRUD - Update)
+
 app.post('/skillsupdate', (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
+    res.setHeader('Access-Control-Allow-Origin', '*');
     sql = "UPDATE skills SET title = '" + req.body.title + "' WHERE id = " + req.body.id;
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var db = new sqlite3.Database(DBPATH);
     db.run(sql, [],  err => {
         if (err) {
             throw err;
         }
         res.end();
     });
-    db.close(); // Fecha o banco
+    db.close();
 });
 
-// Exclui um registro (é o D do CRUD - Delete)
+
 app.post('/skillsdelete', (req, res) => {
     res.statusCode = 200;
-    res.setHeader('Access-Control-Allow-Origin', '*'); // Isso é importante para evitar o erro de CORS
-
+    res.setHeader('Access-Control-Allow-Origin', '*');
     sql = "DELETE FROM skills WHERE id = " + req.body.id;
-    var db = new sqlite3.Database(DBPATH); // Abre o banco
+    var db = new sqlite3.Database(DBPATH);
     db.run(sql, [],  err => {
         if (err) {
             throw err;
         }
         res.end();
     });
-    db.close(); // Fecha o banco
+    db.close();
 });
 
+
 app.listen(port, hostname, () => {
-    console.log(`Database server running at http://${hostname}:${port}/`);
+    console.log(`Server running at http://${hostname}:${port}/`);
   });
