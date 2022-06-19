@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+:root {
+    --blue: skyblue;
+    --lightblue: aliceblue;
+}
+
+body {
+    font-family: Ubuntu, sans-serif;
+    background-color: var(--blue);
+    text-align: center;
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    list-style-position: inside;
+    text-align: center;
+    padding: 20px;
+}
+
+ul li {
+    margin: 5px;
+}
+
+header{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#separator {
+    height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+#separator>div{
+    width: 50%;
+    border: 10px solid skyblue;
+    border-radius: 6px;
+    background-color: aliceblue;
+    height: 100%;
+    align-items: center;
+}
+
+img {
+    border-radius: 10px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 50px;
+    background-color: var(--lightblue);
+}
+
+.list {
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.social-media>#logos>a {
+    display: flex;
+    width: 40px;
+}
+
+.social-media>#logos>a>img {
+    width: 100%;
+}
+
+.social-media>#logos {
+    display: flex;
+    gap: 1vh;
+    margin-top: 10px;
+}
+
+.me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+h2, h3 {
+    width: 100%;
+    display: block;
+}
+
+button {
+    margin: 5px;
+    padding: 6px;
+    font-size: medium;
+    border-radius: 80px;
+    background-color: var(--blue);
+    border: none;
+}
+
+button:hover {
+    background-color: rgb(158, 219, 244);
+    cursor: pointer;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
