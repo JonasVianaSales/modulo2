@@ -5,7 +5,10 @@ const database = new sqlite3.Database('sqlite.db');
 const port = '3000';
 const hostname = '127.0.0.1';
 const DBPATH = 'sqlite.db';
+const bodyParser = require('body-Parser');
+app.use(bodyParser.json());
 app.use(express.json())
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("front/"));
 
 
@@ -27,7 +30,9 @@ app.get('/skills', (req, res) => {
 app.post('/insertskills', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    sql = `INSERT INTO skills (title, id, text) VALUES ('${req.body.title}, ${req.body.text}, ${req.body.id}')`;
+    // console.log(req.body);
+    // console.log(req.body.title, " ", req.body.text);
+    sql = "INSERT INTO skills (title, text) VALUES ('" + req.body.title + "', '" + req.body.text + "')";
     var db = new sqlite3.Database(DBPATH);
     db.run(sql, [],  err => {
         if (err) {
@@ -42,7 +47,9 @@ app.post('/insertskills', (req, res) => {
 app.post('/updateskills', (req, res) => {
     res.statusCode = 200;
     res.setHeader('Access-Control-Allow-Origin', '*');
-    sql = "UPDATE skills SET title = '" + req.body.title + "' WHERE id = " + req.body.id;
+    // console.log(req.body);
+    // console.log(req.body.title, " ", req.body.text, " ", req.body.id);
+    sql = "UPDATE skills SET title = '" + req.body.title + "', text = '" + req.body.text + "' WHERE id = '" + req.body.id + "'";
     var db = new sqlite3.Database(DBPATH);
     db.run(sql, [],  err => {
         if (err) {

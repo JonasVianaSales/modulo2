@@ -25,28 +25,38 @@ function darkMode() {
 
 function getData(){
         $.get('http://127.0.0.1:3000/skills', function(data){
-            $('#title').html(data[0].title);
-            $('#text').html(data[0].text);
+            $('#tdId').html(data[$("#id").val()].id);
+            $('#tdTitle').html(data[$("#id").val()].title);
+            $('#tdText').html(data[$("#id").val()].text);
         })
 }
 
 function insertData(){
-        $.post('http://127.0.0.1:3000/insertskills', function(data){
-            $('#title').html(data[0].title);
-            $('#text').html(data[0].text);
-        })
+        $.post("http://127.0.0.1:3000/insertskills", {
+            "title": $("#title").val(),
+            "text": $("#text").val()
+        }, function(msg) {
+            $("#result").html(msg);
+        });
 }
 
+
 function updateData(){
-        $.post('http://127.0.0.1:3000/updateskills', function(data){
-            $('#title').html(data[0].title);
-            $('#text').html(data[0].text);
+        $.post('http://127.0.0.1:3000/updateskills', {
+            "title": $('#title').val(),
+            "text": $('#text').val(),
+            "id": $('#id').val()
+        }, function(msg) {
+            $('#result').html(msg);
+            console.log($("#title").val(), " ", $("#text").val(), " ", $("#id").val());
         })
 }
 
 function deleteData(){
-        $.post('http://127.0.0.1:3000/deleteskills', function(data){
-            $('#title').html(data[0].title);
-            $('#text').html(data[0].text);
+        $.post('http://127.0.0.1:3000/deleteskills', {
+            "id": $('#id').val()
+        }, function(msg) {
+            $('#result').html(msg);
+            console.log($("#id").val());
         })
 }

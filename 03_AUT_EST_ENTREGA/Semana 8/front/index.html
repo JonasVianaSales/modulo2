@@ -21,6 +21,10 @@
                 </div>
                 <div class="list">
                     <div>
+                        <input type="text" id="title" placeholder="Nova skill"><br>
+                        <input type="text" id="text" placeholder="Descrição"><br>
+                        <input type="number" id="id" placeholder="ID (não se aplica no Inserir)"><br>
+                        <p id="result"></p>
                         <button onclick="getData()">Mostrar skills</button>
                         <button onclick="insertData()">Inserir skills</button>
                         <button onclick="updateData()">Atualizar skills</button>
@@ -28,10 +32,11 @@
                     </div>
                     <div class="center">
                         <table border="1">
-                            <th>Título</th><th>Texto</th>
+                            <th>ID</th><th>Título</th><th>Texto</th>
                             <tr>
-                                <td id="title"></td>
-                                <td id="text"></td>
+                                <td id="tdId"></td>
+                                <td id="tdTitle"></td>
+                                <td id="tdText"></td>
                             </tr>
                         </table>
                     </div>
